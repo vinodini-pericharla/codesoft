@@ -11,7 +11,7 @@ def generator():
     all_characters = small_alphabets + capital_alphabets + numbers + special_characters
     password_length = int(length_Box.get())
 
-    passwordField.config(state=NORMAL)  # Temporarily make the field editable
+    passwordField.config(state=NORMAL)  
     passwordField.delete(0, END)
 
     if choice.get() == 1:
@@ -22,17 +22,17 @@ def generator():
         password = ''.join(random.sample(all_characters, password_length))
     
     passwordField.insert(0, password)
-    passwordField.config(state='readonly')  # Make the field readonly again
+    passwordField.config(state='readonly')  
 
 root = Tk()
 root.title("Password Generator")
 root.geometry("570x490+500+100")
 root.resizable(False, False)
-root.config(bg="#f0f0f0")  # Very light grey background
+root.config(bg="#f0f0f0")  
 
 choice = IntVar()
 
-# Centering all widgets within the window
+
 for i in range(6):
     root.grid_rowconfigure(i, weight=1)
 for i in range(3):
@@ -61,6 +61,6 @@ generateButton.grid(row=4, column=0, columnspan=3, pady=10, sticky="n")
 
 passwordField = Entry(root, width=20, bd=2, font=("arial", 13))
 passwordField.grid(row=5, column=0, columnspan=3, pady=10, sticky="n")
-passwordField.config(state='readonly')  # Make the field readonly initially
+passwordField.config(state='readonly')  
 
 root.mainloop()
